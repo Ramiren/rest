@@ -28,7 +28,7 @@ end
 
 def abfrage
   puts
-  print "Nochmal? (j/n) "
+  print "Nochmals? (j/n) "
   eingabe = gets.chomp
   eingabe.upcase!
 
