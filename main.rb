@@ -26,11 +26,19 @@ def berechnung
   divident_divisor = divident, divisor
   quotient = divident_divisor[0] / divident_divisor[1]
   rest = divident_divisor[0] % divident_divisor[1]
-  puts
+  return quotient, rest
+end
+
+def ausgabe 
+  berechnung_arr = berechnung
+  quotient = berechnung_arr[0]
+  rest = berechnung_arr[1]
   if rest == 0
     puts "#{quotient} UMK"
-  else
-  puts "#{quotient} UMK, #{rest} EA/IVP"
+    elsif quotient == 0
+    puts "#{rest} EA/IVP"
+    else
+    puts "#{quotient} UMK, #{rest} EA/IVP"
   end
   abfrage
 end
@@ -48,10 +56,9 @@ def abfrage
   end
 end
 
-
 def main
-berechnung  
-abfrage
+  ausgabe
+  abfrage
 end
  
 main
