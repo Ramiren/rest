@@ -15,6 +15,11 @@ def divisor
   print "EA/IVP pro UMK: "
   begin
   divisor = Integer(gets.chomp)
+  if divisor == 0
+    puts "Sehr schlechte Idee"
+    puts
+    main
+  end
   rescue
     print "Nur Zahlen, bitte. EA/IVP pro UMK: "
     retry
@@ -22,17 +27,15 @@ def divisor
   divisor
 end
 
-def berechnung 
-  divident_divisor = divident, divisor
-  quotient = divident_divisor[0] / divident_divisor[1]
-  rest = divident_divisor[0] % divident_divisor[1]
+def berechnung (divident, divisor) 
+  quotient = divident / divisor
+  rest = divident % divisor
   return quotient, rest
 end
 
-def ausgabe 
-  berechnung_arr = berechnung
-  quotient = berechnung_arr[0]
-  rest = berechnung_arr[1]
+def ausgabe (quotient_rest) 
+  quotient = quotient_rest.at(0)
+  rest = quotient_rest.at(1)
   if rest == 0
     puts "#{quotient} UMK"
     elsif quotient == 0
@@ -57,7 +60,7 @@ def abfrage
 end
 
 def main
-  ausgabe
+  ausgabe(berechnung(divident,divisor))
   abfrage
 end
  
